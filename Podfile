@@ -7,5 +7,7 @@ target 'ChefZs' do
   # Pods for ChefZs
     pod 'TextFieldEffects'
     pod 'IQKeyboardManagerSwift'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
 
 end
