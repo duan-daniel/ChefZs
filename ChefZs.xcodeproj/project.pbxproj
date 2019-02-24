@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A480EA2822225393009955A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480EA2722225393009955A1 /* AppDelegate.swift */; };
-		A480EA2A22225393009955A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480EA2922225393009955A1 /* ViewController.swift */; };
+		A480EA2A22225393009955A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480EA2922225393009955A1 /* LoginViewController.swift */; };
 		A480EA2D22225393009955A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A480EA2B22225393009955A1 /* Main.storyboard */; };
 		A480EA2F22225393009955A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A480EA2E22225393009955A1 /* Assets.xcassets */; };
 		A480EA3222225393009955A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A480EA3022225393009955A1 /* LaunchScreen.storyboard */; };
+		CE1136D70918105419897A5A /* Pods_ChefZs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305F073E5ED8F956FF019D45 /* Pods_ChefZs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F73794F14B298F64B2D99C2 /* Pods-ChefZs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefZs.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs.release.xcconfig"; sourceTree = "<group>"; };
+		305F073E5ED8F956FF019D45 /* Pods_ChefZs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefZs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		904FBECF83A8CC6ECBB073A3 /* Pods-ChefZs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefZs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs.debug.xcconfig"; sourceTree = "<group>"; };
 		A480EA2422225393009955A1 /* ChefZs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefZs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A480EA2722225393009955A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A480EA2922225393009955A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A480EA2922225393009955A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A480EA2C22225393009955A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A480EA2E22225393009955A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A480EA3122225393009955A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1136D70918105419897A5A /* Pods_ChefZs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E337E395C546B564447CB82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				904FBECF83A8CC6ECBB073A3 /* Pods-ChefZs.debug.xcconfig */,
+				0F73794F14B298F64B2D99C2 /* Pods-ChefZs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B8CCAD7765FD443ABB45B71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				305F073E5ED8F956FF019D45 /* Pods_ChefZs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A480EA1B22225393009955A1 = {
 			isa = PBXGroup;
 			children = (
 				A480EA2622225393009955A1 /* ChefZs */,
 				A480EA2522225393009955A1 /* Products */,
+				3E337E395C546B564447CB82 /* Pods */,
+				5B8CCAD7765FD443ABB45B71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +78,30 @@
 		A480EA2622225393009955A1 /* ChefZs */ = {
 			isa = PBXGroup;
 			children = (
-				A480EA2722225393009955A1 /* AppDelegate.swift */,
-				A480EA2922225393009955A1 /* ViewController.swift */,
+				A480EA3A22225496009955A1 /* Supporting Files */,
+				A480EA3B222254A6009955A1 /* View Controllers */,
 				A480EA2B22225393009955A1 /* Main.storyboard */,
-				A480EA2E22225393009955A1 /* Assets.xcassets */,
-				A480EA3022225393009955A1 /* LaunchScreen.storyboard */,
 				A480EA3322225393009955A1 /* Info.plist */,
 			);
 			path = ChefZs;
+			sourceTree = "<group>";
+		};
+		A480EA3A22225496009955A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A480EA2722225393009955A1 /* AppDelegate.swift */,
+				A480EA2E22225393009955A1 /* Assets.xcassets */,
+				A480EA3022225393009955A1 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A480EA3B222254A6009955A1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A480EA2922225393009955A1 /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A480EA3622225393009955A1 /* Build configuration list for PBXNativeTarget "ChefZs" */;
 			buildPhases = (
+				72FFE2B53F473235BB4C6FC8 /* [CP] Check Pods Manifest.lock */,
 				A480EA2022225393009955A1 /* Sources */,
 				A480EA2122225393009955A1 /* Frameworks */,
 				A480EA2222225393009955A1 /* Resources */,
+				4E8DF5956E8D99E8F7573735 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +172,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E8DF5956E8D99E8F7573735 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72FFE2B53F473235BB4C6FC8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChefZs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A480EA2022225393009955A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A480EA2A22225393009955A1 /* ViewController.swift in Sources */,
+				A480EA2A22225393009955A1 /* LoginViewController.swift in Sources */,
 				A480EA2822225393009955A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +371,7 @@
 		};
 		A480EA3722225393009955A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 904FBECF83A8CC6ECBB073A3 /* Pods-ChefZs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +390,7 @@
 		};
 		A480EA3822225393009955A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F73794F14B298F64B2D99C2 /* Pods-ChefZs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
