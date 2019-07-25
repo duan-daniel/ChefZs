@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         FirebaseApp.configure()
+        let db = Firestore.firestore()
         return true
     }
 
