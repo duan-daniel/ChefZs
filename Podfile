@@ -10,5 +10,6 @@ target 'ChefZs' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
+    pod 'DLRadioButton', '~> 1.4'
 
 end
