@@ -96,7 +96,7 @@ PODS:
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
   - GTMSessionFetcher/Core (1.2.2)
-  - IQKeyboardManagerSwift (6.4.0)
+  - IQKeyboardManagerSwift (6.4.1)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -104,6 +104,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
+  - StatefulViewController (3.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - IQKeyboardManagerSwift
+  - StatefulViewController (~> 3.0)
   - TextFieldEffects
 
 SPEC REPOS:
@@ -134,6 +136,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - StatefulViewController
     - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -151,12 +154,13 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: d26efc271ea288d505a9cf9f1f2839b3fec79bf8
+PODFILE CHECKSUM: e72c28b1f059a001d054fdfec89691d33b7625b3
 
 COCOAPODS: 1.5.3

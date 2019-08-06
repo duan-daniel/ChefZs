@@ -38,7 +38,7 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 50
+        tableView.rowHeight = 90
         tableView.separatorStyle = .none
         
         self.query = baseQuery()
@@ -96,7 +96,6 @@ class MenuTableViewController: UITableViewController {
                     print("\(dish.id) is fucking sth up")
                 }
             }
-            
             self.tableView.reloadData()
         }
     }
@@ -109,7 +108,7 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -148,9 +147,9 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuTableViewCell
         
-//        // Make pretty
-//        cell.viewOfContent.layer.cornerRadius = 10
-//        cell.viewOfContent.layer.masksToBounds = true
+        // Make pretty
+        cell.viewOfContent.layer.cornerRadius = 10
+        cell.viewOfContent.layer.masksToBounds = true
         
         if dishArray.count != 0 {
             switch indexPath.section {
@@ -173,6 +172,37 @@ class MenuTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        if identifier == "addToOrder" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let destination = segue.destination as! AddToOrderViewController
+//            destination.sectionIndex = indexPath.section
+//            destination.rowIndex = indexPath.row
+            
+            switch indexPath.section {
+            case 0:
+                destination.dish = mondayDishArray[indexPath.row]
+            case 1:
+                destination.dish = tuesdayDishArray[indexPath.row]
+            case 2:
+                destination.dish = wednesdayDishArray[indexPath.row]
+            case 3:
+                destination.dish = thursdayDishArray[indexPath.row]
+            case 4:
+                destination.dish = fridayDishArray[indexPath.row]
+            default:
+                print("sth is fucking up")
+            }
+        }
+        else if identifier == "previewOrder" {
+            let destination = segue.destination as! PreviewOrderTableViewController
+        }
     }
  
 
@@ -210,15 +240,6 @@ class MenuTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

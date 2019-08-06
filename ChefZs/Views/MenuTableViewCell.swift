@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import DLRadioButton
 
 class MenuTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var dishLabel: UILabel!
+    @IBOutlet weak var viewOfContent: UIView!
+    
     
 }
