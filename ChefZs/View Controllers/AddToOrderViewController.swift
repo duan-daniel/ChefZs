@@ -10,8 +10,6 @@ import UIKit
 import TextFieldEffects
 import FirebaseAuth
 
-// TODO: grey-out button until all fields are in
-
 class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - Picker View Protocol Stubs
@@ -87,6 +85,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var paymentMethod = ""
     var customerEmail = ""
     var childName = ""
+    var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,10 +169,11 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         name = dish.name
         day = dish.date
         childName = ChildNameTextField.text!
+        id = dish.id
         
         
         // MARK: - create CustomerDish object
-        let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, customerEmail: self.customerEmail, childName: self.childName)
+        let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, customerEmail: self.customerEmail, childName: self.childName, id: self.id)
         SharedVariables.customerDishArray.append(dish)
         
         navigationController?.popViewController(animated: true)

@@ -104,6 +104,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
+  - SCLAlertView (0.8)
   - StatefulViewController (3.0)
   - TextFieldEffects (1.6.0)
 
@@ -113,6 +114,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - IQKeyboardManagerSwift
+  - SCLAlertView
   - StatefulViewController (~> 3.0)
   - TextFieldEffects
 
@@ -136,6 +138,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SCLAlertView
     - StatefulViewController
     - TextFieldEffects
 
@@ -158,9 +161,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: e72c28b1f059a001d054fdfec89691d33b7625b3
+PODFILE CHECKSUM: a84156e36c432954ba499d9b368fab50d2acff1a
 
 COCOAPODS: 1.5.3
