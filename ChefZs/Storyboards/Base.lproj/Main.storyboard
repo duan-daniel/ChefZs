@@ -70,7 +70,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ZC-uy-w3A"/>
-                                            <segue destination="4W5-RH-E5S" kind="show" identifier="goToHomeFromSignIn" id="Biu-Lc-xCC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="it9-tp-xwF">
@@ -108,11 +107,12 @@
                         <outlet property="passwordTextField" destination="nFR-Hd-P9W" id="RDk-PG-blO"/>
                         <outlet property="signInButton" destination="p8M-2x-EAh" id="e24-9E-uf2"/>
                         <outlet property="signUpButton" destination="it9-tp-xwF" id="7pl-z8-3KX"/>
+                        <segue destination="4W5-RH-E5S" kind="show" identifier="goToHomeFromSignIn" id="cb8-0J-Y7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042.0289855072465" y="-61.141304347826093"/>
+            <point key="canvasLocation" x="2962" y="-61"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="5cL-fx-7qe">
@@ -229,7 +229,6 @@
                                             <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ery-3l-28Q"/>
                                             <action selector="signUpButtonTapped:" destination="Vru-An-S4n" eventType="touchUpInside" id="CAS-zo-RkE"/>
                                             <action selector="signUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OfJ-0w-UXe"/>
-                                            <segue destination="4W5-RH-E5S" kind="show" identifier="goToHomeFromSignUp" id="QUZ-IQ-TWp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -260,6 +259,7 @@
                         <outlet property="passwordTextField" destination="Q6B-t1-IWV" id="cIU-7x-pGO"/>
                         <outlet property="paymentTextField" destination="0pp-9n-qd6" id="rmf-Mb-aNc"/>
                         <outlet property="schoolTextField" destination="129-Ny-eAd" id="b6x-MG-mPl"/>
+                        <segue destination="4W5-RH-E5S" kind="show" identifier="goToHomeFromSignUp" id="STG-xi-Wqq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wc-cL-ocF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -635,10 +635,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dh-0Y-JR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4000.0000000000005" y="-61.141304347826093"/>
+            <point key="canvasLocation" x="4123" y="-61"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Biu-Lc-xCC"/>
+        <segue reference="STG-xi-Wqq"/>
     </inferredMetricsTieBreakers>
 </document>

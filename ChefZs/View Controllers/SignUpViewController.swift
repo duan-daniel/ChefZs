@@ -150,28 +150,32 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let newCustomer = Customer(email: email, paymentMethod: paymentMethod, school: school)
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if user != nil {
-                // go to home screen
-                self.performSegue(withIdentifier: "goToHomeFromSignUp", sender: self)
+            if error != nil {
+                let alert = UIAlertController(title: "Sign In Failed",
+                                              message: error?.localizedDescription,
+                                              preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self.present(alert, animated: true, completion: nil)
             }
             else {
-                //TODO: Email already taken error
-                print("error is found")
-                return
+                Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
+                //MARK: - CREATE USERS COLLECTION HERE
+                self.db.collection("customers").document(self.email).setData(newCustomer.dictionary) {
+                    error in
+                    
+                    if let error = error {
+                        print("error adding document: \(error)")
+                    } else {
+                        print("document added!")
+                    }
+                    
+                }
+                self.performSegue(withIdentifier: "goToHomeFromSignUp", sender: self)
             }
-        }
-        
-        //MARK: - CREATE USERS COLLECTION HERE
-        db.collection("customers").document(email).setData(newCustomer.dictionary) {
-            error in
-            
-            if let error = error {
-                print("error adding document: \(error)")
-            } else {
-                print("document added!")
-            }
             
         }
-
+    
     }
 }
