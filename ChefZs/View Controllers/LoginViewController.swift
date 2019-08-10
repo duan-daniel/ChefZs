@@ -17,12 +17,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // authenticateUser()
         // Round button corners
+        
         signInButton.layer.cornerRadius = 20
         signUpButton.layer.cornerRadius = 20
+        
         
         // Add done button to keyboard
         let toolbar = UIToolbar()
@@ -33,10 +41,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.inputAccessoryView = toolbar
         passwordTextField.inputAccessoryView = toolbar
         
+        
         // Disable Sign In Button until all Text Fields are filled in
         configureTextFields()
         updateTextField()
-
+        
+    }
+    
+    // MARK: - API
+    func authenticateUser() {
+//        if Auth.auth().currentUser == nil {
+//            DispatchQueue.main.async {
+//                self.present(MenuTableViewController(), animated: true, completion: nil)
+//            }
+//        }
     }
     
     // MARK: - Disable Button 
@@ -74,20 +92,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if user != nil {
                 // go to home screen
                 self.performSegue(withIdentifier: "goToHomeFromSignIn", sender: self)
+                
             }
             else {
                 
                 //TODO: Let users know that the password is incorrect
                 //TODO: Add loading animation
                 print("error found")
+                return
             }
         }
+        
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        // segue to register screen
         self.performSegue(withIdentifier: "goToSignUpScreen", sender: self)
+
     }
+    
     
     @objc func doneClicked() {
         view.endEditing(true)

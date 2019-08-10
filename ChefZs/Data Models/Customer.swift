@@ -15,16 +15,14 @@ protocol DocumentSerializable {
 
 struct Customer {
     var email: String
-    var password: String
     var paymentMethod: String
-    var childName: String
+    var school: String
     
     var dictionary:[String:Any] {
         return [
             "email":email,
-            "password":password,
             "paymentMethod":paymentMethod,
-            "childName":childName
+            "school":school
         ]
     }
 }
@@ -32,10 +30,9 @@ struct Customer {
 extension Customer : DocumentSerializable {
     init?(dictionary: [String : Any]) {
         guard let email = dictionary["email"] as? String,
-            let password = dictionary["password"] as? String,
             let paymentMethod = dictionary["paymentMethod"] as? String,
-            let childName = dictionary["childName"] as? String else {return nil}
+            let school = dictionary["school"] as? String else {return nil}
         
-        self.init(email: email, password: password, paymentMethod: paymentMethod, childName: childName)
+        self.init(email: email, paymentMethod: paymentMethod, school: school)
     }
 }

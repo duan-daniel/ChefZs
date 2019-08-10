@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2167F32FCBD96C6161714849A9105BE9"
-               BlueprintName = "DLRadioButton"
+               BlueprintIdentifier = "A94F5D24EDEFCBF4EB1CDFC81D86E981"
+               BlueprintName = "SideMenu"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "DLRadioButton.framework">
+               BuildableName = "SideMenu.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

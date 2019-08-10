@@ -10,8 +10,8 @@ target 'ChefZs' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
-    pod 'DLRadioButton', '~> 1.4'
     pod "StatefulViewController", "~> 3.0"
     pod 'SCLAlertView'
+    pod 'SideMenu', '~> 5.0'
 
 end

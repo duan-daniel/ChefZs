@@ -5,7 +5,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
-  - DLRadioButton (1.4.12)
   - Firebase/Auth (6.5.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.2.1)
@@ -105,23 +104,23 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
   - SCLAlertView (0.8)
+  - SideMenu (5.0.1)
   - StatefulViewController (3.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
-  - DLRadioButton (~> 1.4)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
   - IQKeyboardManagerSwift
   - SCLAlertView
+  - SideMenu (~> 5.0)
   - StatefulViewController (~> 3.0)
   - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BoringSSL-GRPC
-    - DLRadioButton
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -139,12 +138,12 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SCLAlertView
+    - SideMenu
     - StatefulViewController
     - TextFieldEffects
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
   FirebaseAnalytics: 3fb375bc9d13779add4039716f868d233a473fad
   FirebaseAuth: a06ad63e9bf4c86165b54cceb1c14d4f4c38d419
@@ -162,9 +161,10 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: a84156e36c432954ba499d9b368fab50d2acff1a
+PODFILE CHECKSUM: 2b4a34d6b2e40b589401acf597a3bcf18b88f968
 
 COCOAPODS: 1.5.3

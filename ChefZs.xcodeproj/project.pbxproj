@@ -22,6 +22,7 @@
 		A4CFDBA622F8A66600772AF4 /* PreviewOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */; };
 		A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */; };
 		A4CFDBAA22F8A90300772AF4 /* SharedVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */; };
+		A4F214A422FD29EE00DFF7D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */; };
 		A4F4F88522F375EA009D06A6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4F88422F375EA009D06A6 /* Default-568h@2x.png */; };
 		A4F7788E2223510D00152BC9 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F7788D2223510D00152BC9 /* MenuTableViewController.swift */; };
 		A4FAE80922F373F700B73804 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FAE80822F373F700B73804 /* HeaderTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 		A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewOrderTableViewController.swift; sourceTree = "<group>"; };
 		A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDish.swift; sourceTree = "<group>"; };
 		A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVariables.swift; sourceTree = "<group>"; };
+		A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A4F4F88422F375EA009D06A6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A4F7788D2223510D00152BC9 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A4FAE80822F373F700B73804 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				A480EA3322225393009955A1 /* Info.plist */,
 				A49E1FFE22E177EB0082804C /* GoogleService-Info.plist */,
+				A4F214A722FD2CA300DFF7D5 /* Protocols */,
 				A4CFDBA422F8A5DC00772AF4 /* Storyboards */,
 				A4F7788F222353BD00152BC9 /* Data Models */,
 				A480EA3A22225496009955A1 /* Supporting Files */,
@@ -133,6 +136,7 @@
 				A4F7788D2223510D00152BC9 /* MenuTableViewController.swift */,
 				A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */,
 				A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */,
+				A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -144,6 +148,13 @@
 				A480EA3022225393009955A1 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A4F214A722FD2CA300DFF7D5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A4F7788F222353BD00152BC9 /* Data Models */ = {
@@ -248,12 +259,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -266,12 +277,12 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -322,6 +333,7 @@
 				A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */,
 				A4FAE80922F373F700B73804 /* HeaderTableViewCell.swift in Sources */,
 				A480EA2A22225393009955A1 /* LoginViewController.swift in Sources */,
+				A4F214A422FD29EE00DFF7D5 /* SettingsViewController.swift in Sources */,
 				A45DAE0D22F37B5B001BDA44 /* Dish.swift in Sources */,
 				A480EA2822225393009955A1 /* AppDelegate.swift in Sources */,
 				A4F7788E2223510D00152BC9 /* MenuTableViewController.swift in Sources */,

@@ -14,36 +14,86 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // MARK: - Picker View Protocol Stubs
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if schoolTextField.isFirstResponder {
+            return schoolPickerData.count
+        }
+        else if paymentTextField.isFirstResponder {
+            return paymentPickerData.count
+        }
+        return 0
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if schoolTextField.isFirstResponder {
+            return schoolPickerData[row]
+        }
+        else if paymentTextField.isFirstResponder {
+            return paymentPickerData[row]
+        }
+        return nil
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if schoolTextField.isFirstResponder {
+            schoolTextField.text = schoolPickerData[row]
+            school = schoolPickerData[row]
+        }
+        else if paymentTextField.isFirstResponder {
+            paymentTextField.text = paymentPickerData[row]
+            paymentMethod = paymentPickerData[row]
+        }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.pickerView?.reloadAllComponents()
+    }
+    
+    // MARK: - Picker View Data
+    let schoolPickerData = ["CMS", "Miller", "MVHS", "Lynbrook", "CHS", "Hyde", "HHS"]
+    let paymentPickerData = ["PayPal", "Cash", "Check"]
+    weak var pickerView: UIPickerView?
+    
 
     var db: Firestore!
     
-    @IBOutlet weak var childFullNameTextField: HoshiTextField!
     @IBOutlet weak var emailTextField: HoshiTextField!
     @IBOutlet weak var passwordTextField: HoshiTextField!
     @IBOutlet weak var createAccountButton: UIButton!
-    @IBOutlet weak var paymentPicker: UIPickerView!
+    @IBOutlet weak var paymentTextField: HoshiTextField!
+    @IBOutlet weak var schoolTextField: HoshiTextField!
     
-    var childName = ""
     var email = ""
-    var password = ""
     var paymentMethod = ""
-    
-    var pickerData = [String]()
+    var school = ""
+    var password = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         db = Firestore.firestore()
-        
-        // Connect the data
-        self.paymentPicker.delegate = self
-        self.paymentPicker.dataSource = self
-        
-        // Input the picker data into an array
-        pickerData = ["Check", "Cash", "PayPal"]
 
         // Round button corners
         createAccountButton.layer.cornerRadius = 20
+        
+        //allow tap on screen to remove text field input from screen
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        // UIPICKER
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        schoolTextField.delegate = self
+        paymentTextField.delegate = self
+        
+        schoolTextField.inputView = pickerView
+        paymentTextField.inputView = pickerView
+        
+        self.pickerView = pickerView
+        
         
         // Add done button to keyboard
         let toolbar = UIToolbar()
@@ -60,33 +110,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
     }
     
-    // MARK: - Picker View methods
-    
-    // Number of columns of data
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return fopr the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    // Capture the picker view selection
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        paymentMethod = pickerData[row]
-    }
-    
     // MARK: - Temporarily Disable Sign Up Button
     
     func configureTextFields() {
         // create an array of textfields
-        let textFieldArray = [childFullNameTextField, emailTextField, passwordTextField]
+        let textFieldArray = [emailTextField, passwordTextField]
         
         // configure them...
         for textField in textFieldArray {
@@ -99,7 +127,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     @objc func updateTextField() {
         // create an array of textFields
-        let textFields = [childFullNameTextField, emailTextField, passwordTextField]
+        let textFields = [emailTextField, passwordTextField]
         // create a bool to test if a textField is blank in the textFields array
         let oneOfTheTextFieldsIsBlank = textFields.contains(where: {($0?.text ?? "").isEmpty})
         if oneOfTheTextFieldsIsBlank {
@@ -116,17 +144,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
 
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        childName = childFullNameTextField.text!
         email = emailTextField.text!
         password = passwordTextField.text!
         
-        print("payment method = \(paymentMethod)")
-        print("childName = \(childName)")
-        print("email = \(email)")
-        print("password = \(password)")
-        
-        let newCustomer = Customer(email: email, password: password, paymentMethod: paymentMethod, childName: childName)
-        
+        let newCustomer = Customer(email: email, paymentMethod: paymentMethod, school: school)
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if user != nil {
@@ -136,21 +157,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             else {
                 //TODO: Email already taken error
                 print("error is found")
+                return
             }
         }
         
-        //TODO: CREATE USERS COLLECTION HERE
-        var ref: DocumentReference? = nil
-        ref = self.db.collection("users").addDocument(data: newCustomer.dictionary) {
+        //MARK: - CREATE USERS COLLECTION HERE
+        db.collection("customers").document(email).setData(newCustomer.dictionary) {
             error in
             
             if let error = error {
-                print("error adding document: \(error.localizedDescription)")
+                print("error adding document: \(error)")
             } else {
-                print("document added! id: \(ref!.documentID)")
+                print("document added!")
             }
+            
         }
-    
 
     }
 }

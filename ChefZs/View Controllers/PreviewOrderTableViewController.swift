@@ -133,15 +133,20 @@ class PreviewOrderTableViewController: UITableViewController {
             let id = CustomerDish.id
             let size = CustomerDish.size
             let email = CustomerDish.customerEmail
-            let school = CustomerDish.school
+            let specificSchool = CustomerDish.school + CustomerDish.size
+            let childName = CustomerDish.childName
+            
+            print(specificSchool)
+            
+            //TODO: Write the Child Name to the database, not the email
             
             let ref = db.collection("foods").document(id)
             if size == "Medium" {
                 print("MEDIUM COUNT GOOD YUH")
                 ref.updateData([
-                    "mediumCount": FieldValue.arrayUnion([email]),
-                    "totalCount": FieldValue.arrayUnion([email]),
-                    "schools.\(school)": FieldValue.arrayUnion([email])
+                    "mediumCount": FieldValue.arrayUnion([childName]),
+                    "totalCount": FieldValue.arrayUnion([childName]),
+                    "schools.\(specificSchool)": FieldValue.arrayUnion([childName])
                 ]) { err in
                     if let err = err {
                         print("Error updating document: \(err)")
@@ -153,9 +158,9 @@ class PreviewOrderTableViewController: UITableViewController {
             else {
                 print("LARGE COUNT GOOD YUH")
                 ref.updateData([
-                    "largeCount": FieldValue.arrayUnion([email]),
-                    "totalCount": FieldValue.arrayUnion([email]),
-                    "schools.\(school)": FieldValue.arrayUnion([email])
+                    "largeCount": FieldValue.arrayUnion([childName]),
+                    "totalCount": FieldValue.arrayUnion([childName]),
+                    "schools.\(specificSchool)": FieldValue.arrayUnion([childName])
                 ]) { err in
                     if let err = err {
                         print("Error updating document: \(err)")
