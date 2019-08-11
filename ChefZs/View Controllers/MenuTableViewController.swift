@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import BEMCheckBox
 
 class MenuTableViewController: UITableViewController {
     
@@ -46,6 +47,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("VIEW WILL APPEAR")
         self.listener =  query?.addSnapshotListener { (documents, error) in
             guard let snapshot = documents else {
                 print("Error fetching documents results: \(error!)")
@@ -109,17 +111,17 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 55
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderTableViewCell
         if (dishArray.count != 0) {
-            let mondayHeader = "Monday \(mondayDishArray[0].date)"
-            let tuesdayHeader = "Tuesday \(tuesdayDishArray[0].date)"
-            let wednesdayHeader = "Wednesday \(wednesdayDishArray[0].date)"
-            let thursdayHeader = "Thursday \(thursdayDishArray[0].date)"
-            let fridayHeader = "Friday \(fridayDishArray[0].date)"
+            let mondayHeader = "Monday | \(mondayDishArray[0].date)"
+            let tuesdayHeader = "Tuesday | \(tuesdayDishArray[0].date)"
+            let wednesdayHeader = "Wednesday | \(wednesdayDishArray[0].date)"
+            let thursdayHeader = "Thursday | \(thursdayDishArray[0].date)"
+            let fridayHeader = "Friday | \(fridayDishArray[0].date)"
             let sections = [mondayHeader, tuesdayHeader, wednesdayHeader, thursdayHeader, fridayHeader]
             cell.headerLabel.text = sections[section]
         }
@@ -152,6 +154,24 @@ class MenuTableViewController: UITableViewController {
         cell.viewOfContent.layer.cornerRadius = 10
         cell.viewOfContent.layer.masksToBounds = true
         
+        cell.checkBox.isHidden = true
+        
+        for checkbox in SharedVariables.checkBoxArray {
+            if indexPath.row == checkbox.row && indexPath.section == checkbox.section {
+                if checkbox.status == true {
+                    print("gottem")
+                    cell.checkBox.isHidden = false
+                    cell.checkBox.setOn(true, animated: true)
+                }
+                else {
+                    print("shouldn't be printing")
+                }
+                
+            }
+
+        }
+        
+        
         if dishArray.count != 0 {
             switch indexPath.section {
             case 0:
@@ -183,8 +203,8 @@ class MenuTableViewController: UITableViewController {
         if identifier == "addToOrder" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let destination = segue.destination as! AddToOrderViewController
-//            destination.sectionIndex = indexPath.section
-//            destination.rowIndex = indexPath.row
+            destination.sectionIndex = indexPath.section
+            destination.rowIndex = indexPath.row
             
             switch indexPath.section {
             case 0:
@@ -210,3 +230,6 @@ class MenuTableViewController: UITableViewController {
     }
 
 }
+    
+    
+

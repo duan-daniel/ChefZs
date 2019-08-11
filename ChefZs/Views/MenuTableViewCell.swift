@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class MenuTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dishLabel: UILabel!
     @IBOutlet weak var viewOfContent: UIView!
-    
+    @IBOutlet weak var checkBox: BEMCheckBox!
     
 }

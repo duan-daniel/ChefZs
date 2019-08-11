@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A94F5D24EDEFCBF4EB1CDFC81D86E981"
-               BlueprintName = "SideMenu"
+               BlueprintIdentifier = "6ADA5765F8A0E665B378C9356B7C05DC"
+               BlueprintName = "BEMCheckBox"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SideMenu.framework">
+               BuildableName = "BEMCheckBox.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

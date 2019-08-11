@@ -127,6 +127,12 @@ class PreviewOrderTableViewController: UITableViewController {
     
     @objc func fabTapped(_ button: UIButton) {
         print("button tapped")
+        
+        
+        
+        // MARK: - reset checkboxes
+        SharedVariables.checkBoxArray.removeAll()
+        
         // MARK: - Write to firebase
         for CustomerDish in SharedVariables.customerDishArray {
             
@@ -172,14 +178,25 @@ class PreviewOrderTableViewController: UITableViewController {
 
         }
         
-        
-        // pop the view controller
-        navigationController?.popViewController(animated: true)
-        
-        
         // MARK: remove all elements from CustomerDishArray
         SharedVariables.customerDishArray.removeAll()
-    }
+
+        
+        // show alert
+        let alert = UIAlertController(title: "Dishes Ordered!",
+                                      message: "All orders have been placed. Enjoy!",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }
+
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        }
     
 
 }

@@ -11,6 +11,7 @@
 		A4102C6E22F788B400542A50 /* AddToOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */; };
 		A41F7E2C22E56D850076E951 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41F7E2B22E56D850076E951 /* Customer.swift */; };
 		A45DAE0D22F37B5B001BDA44 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAE0C22F37B5B001BDA44 /* Dish.swift */; };
+		A4615C9D22FFD80E0054A4D5 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */; };
 		A470B319222267D7008B3B3D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B318222267D7008B3B3D /* SignUpViewController.swift */; };
 		A480EA2822225393009955A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480EA2722225393009955A1 /* AppDelegate.swift */; };
 		A480EA2A22225393009955A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480EA2922225393009955A1 /* LoginViewController.swift */; };
@@ -37,6 +38,7 @@
 		A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderViewController.swift; sourceTree = "<group>"; };
 		A41F7E2B22E56D850076E951 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		A45DAE0C22F37B5B001BDA44 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		A470B318222267D7008B3B3D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A480EA2422225393009955A1 /* ChefZs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefZs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A480EA2722225393009955A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A45DAE0C22F37B5B001BDA44 /* Dish.swift */,
 				A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */,
 				A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */,
+				A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -258,13 +261,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -276,13 +279,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -338,6 +341,7 @@
 				A480EA2822225393009955A1 /* AppDelegate.swift in Sources */,
 				A4F7788E2223510D00152BC9 /* MenuTableViewController.swift in Sources */,
 				A4102C6E22F788B400542A50 /* AddToOrderViewController.swift in Sources */,
+				A4615C9D22FFD80E0054A4D5 /* CheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
