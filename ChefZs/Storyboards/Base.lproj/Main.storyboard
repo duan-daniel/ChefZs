@@ -369,72 +369,123 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="BEh-Jq-CE1">
-                                <rect key="frame" x="20" y="136" width="105" height="113"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="CdO-pA-7VW">
+                                <rect key="frame" x="50" y="240.99999999999997" width="314" height="357.33333333333326"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrd-Ff-i9L">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="48"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
-                                        <state key="normal" title="Payment">
-                                            <color key="titleColor" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="paymentButtonPressed:" destination="CXa-At-CYk" eventType="touchUpInside" id="fGj-9O-EF3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-4R-TuI">
-                                        <rect key="frame" x="0.0" y="65" width="105" height="48"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
-                                        <state key="normal" title="School">
-                                            <color key="titleColor" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="schoolButtonPressed:" destination="CXa-At-CYk" eventType="touchUpInside" id="5cm-WB-ZlS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-ch-uCF">
-                                <rect key="frame" x="20" y="636.33333333333337" width="187.66666666666666" height="79.666666666666629"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test.daniel@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyp-0J-57t">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="24.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test.daniel@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyp-0J-57t">
+                                        <rect key="frame" x="0.0" y="0.0" width="304.33333333333331" height="27.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="0TP-Rj-um5">
+                                        <rect key="frame" x="0.0" y="77.333333333333314" width="304.33333333333331" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3C-Pf-wDc">
+                                                <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="60"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <color key="textColor" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-Ec-Sam" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="108.33333333333334" y="0.0" width="196.00000000000003" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="196" id="FQh-na-6xO"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="4Wz-QI-ir8"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bLH-gi-mzA">
+                                        <rect key="frame" x="0.0" y="187.33333333333331" width="304.33333333333331" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipo-PA-h9F">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="60"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <color key="textColor" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKl-QY-F0f" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="109.00000000000001" y="0.0" width="195.33333333333337" height="60"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.3411764706" green="0.39607843139999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbQ-Aa-v3x">
-                                        <rect key="frame" x="0.0" y="42.666666666666629" width="187.66666666666666" height="37"/>
+                                        <rect key="frame" x="0.0" y="297.33333333333337" width="304.33333333333331" height="60"/>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.57254901960000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                        <state key="normal" title="Sign Out">
+                                        <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="signOutButtonPressed:" destination="CXa-At-CYk" eventType="touchUpInside" id="b0n-xX-nTp"/>
+                                            <action selector="saveButtonTapped:" destination="CXa-At-CYk" eventType="touchUpInside" id="1XD-1H-G1N"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="bLH-gi-mzA" firstAttribute="height" secondItem="0TP-Rj-um5" secondAttribute="height" id="cwx-LL-Ep6"/>
+                                    <constraint firstItem="rbQ-Aa-v3x" firstAttribute="width" secondItem="0TP-Rj-um5" secondAttribute="width" id="fVg-Hj-2lk"/>
+                                    <constraint firstItem="rbQ-Aa-v3x" firstAttribute="height" secondItem="0TP-Rj-um5" secondAttribute="height" id="gYZ-Bq-tEv"/>
+                                    <constraint firstItem="bLH-gi-mzA" firstAttribute="width" secondItem="0TP-Rj-um5" secondAttribute="width" id="ilu-Mx-Alm"/>
+                                    <constraint firstItem="cyp-0J-57t" firstAttribute="width" secondItem="0TP-Rj-um5" secondAttribute="width" id="yhb-o6-3MU"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dgo-GS-lBo" firstAttribute="bottom" secondItem="6s0-ch-uCF" secondAttribute="bottom" constant="20" id="R8I-cG-Uau"/>
-                            <constraint firstItem="6s0-ch-uCF" firstAttribute="leading" secondItem="dgo-GS-lBo" secondAttribute="leading" constant="20" id="h7g-WX-7fZ"/>
-                            <constraint firstItem="BEh-Jq-CE1" firstAttribute="top" secondItem="dgo-GS-lBo" secondAttribute="top" constant="20" id="jhG-1r-CnO"/>
-                            <constraint firstItem="BEh-Jq-CE1" firstAttribute="leading" secondItem="dgo-GS-lBo" secondAttribute="leading" constant="20" id="phK-xo-nbJ"/>
+                            <constraint firstItem="CdO-pA-7VW" firstAttribute="top" secondItem="dgo-GS-lBo" secondAttribute="top" constant="125" id="CwK-ya-aCF"/>
+                            <constraint firstItem="CdO-pA-7VW" firstAttribute="leading" secondItem="dgo-GS-lBo" secondAttribute="leading" constant="50" id="EkP-rb-h8s"/>
+                            <constraint firstItem="dgo-GS-lBo" firstAttribute="trailing" secondItem="CdO-pA-7VW" secondAttribute="trailing" constant="50" id="G4K-eJ-eFk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dgo-GS-lBo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="QtS-0J-s8c"/>
+                    <navigationItem key="navigationItem" title="Settings" id="QtS-0J-s8c">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="hLO-va-Abb">
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="CXa-At-CYk" id="5FU-pw-4Oj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailLabel" destination="cyp-0J-57t" id="nIG-Z1-7K3"/>
-                        <outlet property="signOutButton" destination="rbQ-Aa-v3x" id="tx2-bh-FNS"/>
+                        <outlet property="paymentTextField" destination="2QD-Ec-Sam" id="mY6-75-uvr"/>
+                        <outlet property="saveButton" destination="rbQ-Aa-v3x" id="9Cm-oa-KXm"/>
+                        <outlet property="schoolTextField" destination="rKl-QY-F0f" id="ZMU-cg-E3Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFF-Bt-hp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6084" y="-776"/>
+            <point key="canvasLocation" x="6082.608695652174" y="-776.08695652173924"/>
         </scene>
         <!--Complete Order-->
         <scene sceneID="yVK-q8-e69">
@@ -508,7 +559,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aeo-UG-CV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6084.057971014493" y="-61.141304347826093"/>
+            <point key="canvasLocation" x="6083" y="-61"/>
         </scene>
         <!--Order-->
         <scene sceneID="GsX-rL-hUp">
@@ -639,6 +690,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="STG-xi-Wqq"/>
+        <segue reference="cb8-0J-Y7B"/>
     </inferredMetricsTieBreakers>
 </document>
