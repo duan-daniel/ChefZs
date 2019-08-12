@@ -20,6 +20,7 @@
 		A480EA3222225393009955A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A480EA3022225393009955A1 /* LaunchScreen.storyboard */; };
 		A49E1FFF22E177EB0082804C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A49E1FFE22E177EB0082804C /* GoogleService-Info.plist */; };
 		A4ACAFCA22FA154700DD8D2A /* PreviewOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAFC922FA154700DD8D2A /* PreviewOrderTableViewCell.swift */; };
+		A4C7EF762301F63000BBB7A2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7EF752301F63000BBB7A2 /* Profile.swift */; };
 		A4CFDBA622F8A66600772AF4 /* PreviewOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */; };
 		A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */; };
 		A4CFDBAA22F8A90300772AF4 /* SharedVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */; };
@@ -49,6 +50,7 @@
 		A480EA3322225393009955A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A49E1FFE22E177EB0082804C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4ACAFC922FA154700DD8D2A /* PreviewOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewOrderTableViewCell.swift; sourceTree = "<group>"; };
+		A4C7EF752301F63000BBB7A2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewOrderTableViewController.swift; sourceTree = "<group>"; };
 		A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDish.swift; sourceTree = "<group>"; };
 		A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVariables.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */,
 				A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */,
 				A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */,
+				A4C7EF752301F63000BBB7A2 /* Profile.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */,
 				A4FAE80922F373F700B73804 /* HeaderTableViewCell.swift in Sources */,
 				A480EA2A22225393009955A1 /* LoginViewController.swift in Sources */,
+				A4C7EF762301F63000BBB7A2 /* Profile.swift in Sources */,
 				A4F214A422FD29EE00DFF7D5 /* SettingsViewController.swift in Sources */,
 				A45DAE0D22F37B5B001BDA44 /* Dish.swift in Sources */,
 				A480EA2822225393009955A1 /* AppDelegate.swift in Sources */,

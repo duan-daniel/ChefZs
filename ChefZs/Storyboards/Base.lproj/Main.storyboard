@@ -289,13 +289,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="2jH-qs-zpc" secondAttribute="bottom" constant="4" id="4Pz-iy-xJZ"/>
                                         <constraint firstItem="2jH-qs-zpc" firstAttribute="top" secondItem="JUz-9Z-HJX" secondAttribute="topMargin" constant="4" id="Jny-0w-oaO"/>
                                         <constraint firstItem="2jH-qs-zpc" firstAttribute="leading" secondItem="JUz-9Z-HJX" secondAttribute="leadingMargin" id="Ka1-qT-62v"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="headerLabel" destination="2jH-qs-zpc" id="fQz-5l-LvT"/>
                                 </connections>

@@ -142,9 +142,7 @@ class PreviewOrderTableViewController: UITableViewController {
             let specificSchool = CustomerDish.school + CustomerDish.size
             let childName = CustomerDish.childName
             
-            print(specificSchool)
-            
-            //TODO: Write the Child Name to the database, not the email
+//            let profile = Profile(childName: childName, parentEmail: email, dishSize: size)
             
             let ref = db.collection("foods").document(id)
             if size == "Medium" {
