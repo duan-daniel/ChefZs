@@ -30,7 +30,7 @@ class PreviewOrderTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 160
+        tableView.rowHeight = 220
         tableView.separatorStyle = .none
         
         db = Firestore.firestore()
@@ -114,13 +114,17 @@ class PreviewOrderTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "previewOrderCell", for: indexPath) as! PreviewOrderTableViewCell
+        
+        cell.viewOfContent.layer.cornerRadius = 10
+        cell.viewOfContent.layer.masksToBounds = true
 
         let customerDish = SharedVariables.customerDishArray[indexPath.row]
-        cell.dateLabel.text = "Date: \(customerDish.day)"
-        cell.dishLabel.text = "Dish: \(customerDish.name)"
+        cell.dateLabel.text = customerDish.day
+        cell.dishLabel.text = customerDish.name
         cell.paymentLabel.text = "Payment: \(customerDish.paymentMethod)"
         cell.schoolLabel.text = "School: \(customerDish.school)"
         cell.sizeLabel.text = "Size: \(customerDish.size)"
+        cell.orderForLabel.text = "Order For: \(customerDish.childName)"
 
         return cell
     }

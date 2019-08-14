@@ -176,7 +176,18 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func addToOrderPressed(_ sender: UIButton) {
 
         name = dish.name
-        day = dish.date
+        switch sectionIndex {
+        case 0:
+            day = "Monday | \(dish.date)"
+        case 1:
+            day = "Tuesday | \(dish.date)"
+        case 2:
+            day = "Wednesday | \(dish.date)"
+        case 3:
+            day = "Thursday | \(dish.date)"
+        default:
+            day = "Friday | \(dish.date)"
+        }
         childName = ChildNameTextField.text!
         id = dish.id
         

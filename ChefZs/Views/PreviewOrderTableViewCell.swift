@@ -14,7 +14,8 @@ class PreviewOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
-    
     @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var viewOfContent: UIView!
+    @IBOutlet weak var orderForLabel: UILabel!
     
 }
