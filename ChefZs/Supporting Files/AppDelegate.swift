@@ -10,6 +10,8 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 
+var isAppAlreadyLaunchedOnce = false
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,6 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         let db = Firestore.firestore()
+        
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched")
+            isAppAlreadyLaunchedOnce = true
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App Launched first time")
+            isAppAlreadyLaunchedOnce = false
+        }
+        
+        
         return true
     }
 

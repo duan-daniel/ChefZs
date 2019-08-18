@@ -11,4 +11,5 @@ import Foundation
 struct SharedVariables {
     static var customerDishArray: [CustomerDish] = []
     static var checkBoxArray: [CheckBox] = []
+    static var paymentHistoryDishArray: [PaymentHistoryDish] = []
 }

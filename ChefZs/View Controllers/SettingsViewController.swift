@@ -57,12 +57,16 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var paymentTextField: HoshiTextField!
     @IBOutlet weak var schoolTextField: HoshiTextField!
+    @IBOutlet weak var childNameTextField: HoshiTextField!
+    
+    
     @IBOutlet weak var saveButton: UIButton!
     
     var db: Firestore!
     var email = ""
     var paymentMethod = ""
     var school = ""
+    var childName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +99,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             if ((user) != nil) {
                 self.email = (user?.email)!
                 self.emailLabel.text = user?.email
-                self.db.collection("customers").document(self.email)
+                self.db.collection("buyers").document(self.email)
                     .addSnapshotListener { documentSnapshot, error in
                         guard let document = documentSnapshot else {
                             print("Error fetching document: \(error!)")
@@ -107,8 +111,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         }
                         self.paymentMethod = data["paymentMethod"] as! String
                         self.school = data["school"] as! String
+                        self.childName = data["childName"] as! String
                         self.paymentTextField.text = self.paymentMethod
                         self.schoolTextField.text = self.school
+                        self.childNameTextField.text = self.childName
                 }
             }
             else {
@@ -139,9 +145,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let customerEmail = emailLabel.text
         let customerPaymentMethod = paymentTextField.text
         let customerSchool = schoolTextField.text
-        let newCustomer = Customer(email: customerEmail!, paymentMethod: customerPaymentMethod!, school: customerSchool!)
+        let customerChild = childNameTextField.text
+        let newCustomer = Customer(email: customerEmail!, paymentMethod: customerPaymentMethod!, school: customerSchool!, childName: customerChild!)
         
-        self.db.collection("customers").document(customerEmail!).setData(newCustomer.dictionary) {
+        self.db.collection("buyers").document(customerEmail!).setData(newCustomer.dictionary) {
             error in
             
             if let error = error {
@@ -153,15 +160,5 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

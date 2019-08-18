@@ -9,6 +9,7 @@
 import UIKit
 import StatefulViewController
 import FirebaseFirestore
+import RealmSwift
 
 class PreviewOrderTableViewController: UITableViewController {
     
@@ -24,6 +25,9 @@ class PreviewOrderTableViewController: UITableViewController {
     // for state controller
     let emptyStateView = UIView()
     let noStateView = UIView()
+    
+    // realm
+    let realm = try! Realm()
     
     // firestore reference
     var db: Firestore!
@@ -102,12 +106,10 @@ class PreviewOrderTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return SharedVariables.customerDishArray.count
     }
 
@@ -132,29 +134,38 @@ class PreviewOrderTableViewController: UITableViewController {
     @objc func fabTapped(_ button: UIButton) {
         print("button tapped")
         
-        
-        
         // MARK: - reset checkboxes
         SharedVariables.checkBoxArray.removeAll()
         
-        // MARK: - Write to firebase
+        // MARK: - Write to firebase and to paymentHistoryDishArray
         for CustomerDish in SharedVariables.customerDishArray {
+            
             
             let id = CustomerDish.id
             let size = CustomerDish.size
             let email = CustomerDish.customerEmail
             let specificSchool = CustomerDish.school + CustomerDish.size
             let childName = CustomerDish.childName
+            let paymentMethod = CustomerDish.paymentMethod
+            let profile = "\(childName)|\(paymentMethod)"
             
-//            let profile = Profile(childName: childName, parentEmail: email, dishSize: size)
+            let pDish = PaymentHistoryDish()
+            pDish.childName = childName
+            pDish.date = CustomerDish.day
+            pDish.dishName = CustomerDish.name
+            pDish.paymentMethod = paymentMethod
+            pDish.size = size
             
+            savePDish(dish: pDish)
+            
+            // Firebase Database
             let ref = db.collection("foods").document(id)
             if size == "Medium" {
                 print("MEDIUM COUNT GOOD YUH")
                 ref.updateData([
-                    "mediumCount": FieldValue.arrayUnion([childName]),
-                    "totalCount": FieldValue.arrayUnion([childName]),
-                    "schools.\(specificSchool)": FieldValue.arrayUnion([childName])
+                    "mediumCount": FieldValue.arrayUnion([profile]),
+                    "totalCount": FieldValue.arrayUnion([profile]),
+                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
                 ]) { err in
                     if let err = err {
                         print("Error updating document: \(err)")
@@ -166,9 +177,9 @@ class PreviewOrderTableViewController: UITableViewController {
             else {
                 print("LARGE COUNT GOOD YUH")
                 ref.updateData([
-                    "largeCount": FieldValue.arrayUnion([childName]),
-                    "totalCount": FieldValue.arrayUnion([childName]),
-                    "schools.\(specificSchool)": FieldValue.arrayUnion([childName])
+                    "largeCount": FieldValue.arrayUnion([profile]),
+                    "totalCount": FieldValue.arrayUnion([profile]),
+                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
                 ]) { err in
                     if let err = err {
                         print("Error updating document: \(err)")
@@ -183,7 +194,6 @@ class PreviewOrderTableViewController: UITableViewController {
         // MARK: remove all elements from CustomerDishArray
         SharedVariables.customerDishArray.removeAll()
 
-        
         // show alert
         let alert = UIAlertController(title: "Dishes Ordered!",
                                       message: "All orders have been placed. Enjoy!",
@@ -192,13 +202,20 @@ class PreviewOrderTableViewController: UITableViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) -> Void in
             self.navigationController?.popViewController(animated: true)
         }
-
         alert.addAction(okAction)
-        
         self.present(alert, animated: true, completion: nil)
         
         
         }
     
+    func savePDish(dish: PaymentHistoryDish) {
+        do {
+            try realm.write {
+                realm.add(dish)
+            }
+        } catch {
+            print("Error saving cateogry \(error)")
+        }
+    }
 
 }

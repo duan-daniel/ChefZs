@@ -39,8 +39,14 @@ class MenuTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // app launched for fist time --> take to pop up screen
+        if !isAppAlreadyLaunchedOnce {
+            self.performSegue(withIdentifier: "showWelcomeScreen", sender: nil)
+        }
                 
-        tableView.rowHeight = 90
+//        tableView.rowHeight = 90
+        tableView.rowHeight = 100
         tableView.separatorStyle = .none
         
         self.query = baseQuery()
@@ -191,7 +197,10 @@ class MenuTableViewController: UITableViewController {
                 cell.dishLabel.text = dish.name
             }
         }
-        
+//        
+//        cell.dishLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        cell.dishLabel.numberOfLines = 3
+//        
         return cell
     }
     

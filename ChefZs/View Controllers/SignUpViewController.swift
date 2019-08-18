@@ -64,11 +64,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var paymentTextField: HoshiTextField!
     @IBOutlet weak var schoolTextField: HoshiTextField!
+    @IBOutlet weak var childNameTextField: HoshiTextField!
+    
     
     var email = ""
     var paymentMethod = ""
     var school = ""
     var password = ""
+    var childName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +106,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         toolbar.setItems([flexibleSpace, doneButton], animated: false)
         emailTextField.inputAccessoryView = toolbar
         passwordTextField.inputAccessoryView = toolbar
+        childNameTextField.inputAccessoryView = toolbar
         
         // Disable Sign In Button until all Text Fields are filled in
         configureTextFields()
@@ -114,7 +118,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     func configureTextFields() {
         // create an array of textfields
-        let textFieldArray = [emailTextField, passwordTextField]
+        let textFieldArray = [emailTextField, passwordTextField, childNameTextField]
         
         // configure them...
         for textField in textFieldArray {
@@ -127,7 +131,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     @objc func updateTextField() {
         // create an array of textFields
-        let textFields = [emailTextField, passwordTextField]
+        let textFields = [emailTextField, passwordTextField, childNameTextField]
         // create a bool to test if a textField is blank in the textFields array
         let oneOfTheTextFieldsIsBlank = textFields.contains(where: {($0?.text ?? "").isEmpty})
         if oneOfTheTextFieldsIsBlank {
@@ -146,8 +150,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         email = emailTextField.text!
         password = passwordTextField.text!
+        childName = childNameTextField.text!
         
-        let newCustomer = Customer(email: email, paymentMethod: paymentMethod, school: school)
+        let newCustomer = Customer(email: email, paymentMethod: paymentMethod, school: school, childName: childName)
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
@@ -162,7 +167,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             else {
                 Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
                 //MARK: - CREATE USERS COLLECTION HERE
-                self.db.collection("customers").document(self.email).setData(newCustomer.dictionary) {
+                self.db.collection("buyers").document(self.email).setData(newCustomer.dictionary) {
                     error in
                     
                     if let error = error {

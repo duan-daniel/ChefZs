@@ -17,12 +17,14 @@ struct Customer {
     var email: String
     var paymentMethod: String
     var school: String
+    var childName: String
     
     var dictionary:[String:Any] {
         return [
             "email":email,
             "paymentMethod":paymentMethod,
-            "school":school
+            "school":school,
+            "childName":childName
         ]
     }
 }
@@ -31,8 +33,9 @@ extension Customer : DocumentSerializable {
     init?(dictionary: [String : Any]) {
         guard let email = dictionary["email"] as? String,
             let paymentMethod = dictionary["paymentMethod"] as? String,
-            let school = dictionary["school"] as? String else {return nil}
+            let school = dictionary["school"] as? String,
+            let childName = dictionary["childName"] as? String else {return nil}
         
-        self.init(email: email, paymentMethod: paymentMethod, school: school)
+        self.init(email: email, paymentMethod: paymentMethod, school: school, childName: childName)
     }
 }

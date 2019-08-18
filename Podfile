@@ -11,8 +11,7 @@ target 'ChefZs' do
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod "StatefulViewController", "~> 3.0"
-    pod 'SCLAlertView'
     pod 'BEMCheckBox'
-
+    pod 'RealmSwift'
 
 end

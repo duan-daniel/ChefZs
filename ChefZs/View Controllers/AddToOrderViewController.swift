@@ -115,8 +115,8 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         loadData()
         
-        configureTextFields()
-        updateTextFields()
+//        configureTextFields()
+//        updateTextFields()
         
     }
     
@@ -125,7 +125,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if let user = user {
             self.customerEmail = user.email!
         }
-        db.collection("customers").document(customerEmail).addSnapshotListener { (documentSnapshot, error) in
+        db.collection("buyers").document(customerEmail).addSnapshotListener { (documentSnapshot, error) in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
@@ -136,6 +136,8 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             self.paymentMethod = data["paymentMethod"] as! String
             self.school = data["school"] as! String
+            self.childName = data["childName"] as! String
+            self.ChildNameTextField.text = self.childName
         }
     }
     
@@ -144,7 +146,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // MARK: - Temporarily Disable Add to Order Button
     func configureTextFields() {
         // create an array of textfields
-        let textFieldArray = [sizeTextField, ChildNameTextField]
+        let textFieldArray = [ChildNameTextField]
         
         // configure them...
         for textField in textFieldArray {
@@ -157,7 +159,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @objc func updateTextFields() {
         // create an array of textFields
-        let textFields = [sizeTextField, ChildNameTextField]
+        let textFields = [ChildNameTextField]
         // create a bool to test if a textField is blank in the textFields array
         let oneOfTheTextFieldsIsBlank = textFields.contains(where: {($0?.text ?? "").isEmpty})
         if oneOfTheTextFieldsIsBlank {
@@ -196,15 +198,6 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, customerEmail: self.customerEmail, childName: self.childName, id: self.id)
             SharedVariables.customerDishArray.append(dish)
             
-//            let vc = MenuTableViewController()
-//            print(rowIndex)
-//            print(sectionIndex)
-//            let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
-//            for checkBox in SharedVariables.checkBoxArray {
-//                if rowIndex == checkBox.row && sectionIndex == checkBox.section {
-//                    checkBox.status = true
-//                }
-//            }
             let garbage = CheckBox(section: sectionIndex, row: rowIndex, status: true)
             SharedVariables.checkBoxArray.append(garbage)
             

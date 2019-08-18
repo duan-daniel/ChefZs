@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A40B8B3922F37A5600FB9C75 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B8B3822F37A5600FB9C75 /* MenuTableViewCell.swift */; };
 		A4102C6E22F788B400542A50 /* AddToOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */; };
+		A41C57352304F91B00E73C73 /* PaymentHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C57342304F91B00E73C73 /* PaymentHistoryTableViewController.swift */; };
+		A41C57372304F9DC00E73C73 /* PaymentHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C57362304F9DC00E73C73 /* PaymentHistoryTableViewCell.swift */; };
+		A41C57392304FB3400E73C73 /* PaymentHistoryDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C57382304FB3400E73C73 /* PaymentHistoryDish.swift */; };
 		A41F7E2C22E56D850076E951 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41F7E2B22E56D850076E951 /* Customer.swift */; };
 		A45DAE0D22F37B5B001BDA44 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAE0C22F37B5B001BDA44 /* Dish.swift */; };
 		A4615C9D22FFD80E0054A4D5 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */; };
@@ -25,6 +28,7 @@
 		A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */; };
 		A4CFDBAA22F8A90300772AF4 /* SharedVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */; };
 		A4F214A422FD29EE00DFF7D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */; };
+		A4F4CA1923087B9000DCE707 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4CA1823087B9000DCE707 /* WelcomeViewController.swift */; };
 		A4F4F88522F375EA009D06A6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4F88422F375EA009D06A6 /* Default-568h@2x.png */; };
 		A4F7788E2223510D00152BC9 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F7788D2223510D00152BC9 /* MenuTableViewController.swift */; };
 		A4FAE80922F373F700B73804 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FAE80822F373F700B73804 /* HeaderTableViewCell.swift */; };
@@ -37,6 +41,9 @@
 		904FBECF83A8CC6ECBB073A3 /* Pods-ChefZs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefZs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChefZs/Pods-ChefZs.debug.xcconfig"; sourceTree = "<group>"; };
 		A40B8B3822F37A5600FB9C75 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderViewController.swift; sourceTree = "<group>"; };
+		A41C57342304F91B00E73C73 /* PaymentHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryTableViewController.swift; sourceTree = "<group>"; };
+		A41C57362304F9DC00E73C73 /* PaymentHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		A41C57382304FB3400E73C73 /* PaymentHistoryDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryDish.swift; sourceTree = "<group>"; };
 		A41F7E2B22E56D850076E951 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		A45DAE0C22F37B5B001BDA44 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		A480EA2E22225393009955A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A480EA3122225393009955A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A480EA3322225393009955A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A48D8AB1230897A700AC5DB0 /* ChefZs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChefZs.entitlements; sourceTree = "<group>"; };
 		A49E1FFE22E177EB0082804C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4ACAFC922FA154700DD8D2A /* PreviewOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewOrderTableViewCell.swift; sourceTree = "<group>"; };
 		A4C7EF752301F63000BBB7A2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 		A4CFDBA722F8A88B00772AF4 /* CustomerDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDish.swift; sourceTree = "<group>"; };
 		A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVariables.swift; sourceTree = "<group>"; };
 		A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A4F4CA1823087B9000DCE707 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A4F4F88422F375EA009D06A6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A4F7788D2223510D00152BC9 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A4FAE80822F373F700B73804 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +120,7 @@
 		A480EA2622225393009955A1 /* ChefZs */ = {
 			isa = PBXGroup;
 			children = (
+				A48D8AB1230897A700AC5DB0 /* ChefZs.entitlements */,
 				A480EA3322225393009955A1 /* Info.plist */,
 				A49E1FFE22E177EB0082804C /* GoogleService-Info.plist */,
 				A4F214A722FD2CA300DFF7D5 /* Protocols */,
@@ -141,6 +151,8 @@
 				A4102C6D22F788B400542A50 /* AddToOrderViewController.swift */,
 				A4CFDBA522F8A66600772AF4 /* PreviewOrderTableViewController.swift */,
 				A4F214A322FD29EE00DFF7D5 /* SettingsViewController.swift */,
+				A41C57342304F91B00E73C73 /* PaymentHistoryTableViewController.swift */,
+				A4F4CA1823087B9000DCE707 /* WelcomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -170,6 +182,7 @@
 				A4CFDBA922F8A90300772AF4 /* SharedVariables.swift */,
 				A4615C9C22FFD80E0054A4D5 /* CheckBox.swift */,
 				A4C7EF752301F63000BBB7A2 /* Profile.swift */,
+				A41C57382304FB3400E73C73 /* PaymentHistoryDish.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -180,6 +193,7 @@
 				A4FAE80822F373F700B73804 /* HeaderTableViewCell.swift */,
 				A40B8B3822F37A5600FB9C75 /* MenuTableViewCell.swift */,
 				A4ACAFC922FA154700DD8D2A /* PreviewOrderTableViewCell.swift */,
+				A41C57362304F9DC00E73C73 /* PaymentHistoryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +232,11 @@
 				TargetAttributes = {
 					A480EA2322225393009955A1 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -270,7 +289,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -288,7 +308,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -330,11 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41C57352304F91B00E73C73 /* PaymentHistoryTableViewController.swift in Sources */,
+				A4F4CA1923087B9000DCE707 /* WelcomeViewController.swift in Sources */,
 				A4CFDBAA22F8A90300772AF4 /* SharedVariables.swift in Sources */,
 				A470B319222267D7008B3B3D /* SignUpViewController.swift in Sources */,
 				A4ACAFCA22FA154700DD8D2A /* PreviewOrderTableViewCell.swift in Sources */,
 				A41F7E2C22E56D850076E951 /* Customer.swift in Sources */,
 				A40B8B3922F37A5600FB9C75 /* MenuTableViewCell.swift in Sources */,
+				A41C57392304FB3400E73C73 /* PaymentHistoryDish.swift in Sources */,
 				A4CFDBA622F8A66600772AF4 /* PreviewOrderTableViewController.swift in Sources */,
 				A4CFDBA822F8A88B00772AF4 /* CustomerDish.swift in Sources */,
 				A4FAE80922F373F700B73804 /* HeaderTableViewCell.swift in Sources */,
@@ -344,6 +368,7 @@
 				A45DAE0D22F37B5B001BDA44 /* Dish.swift in Sources */,
 				A480EA2822225393009955A1 /* AppDelegate.swift in Sources */,
 				A4F7788E2223510D00152BC9 /* MenuTableViewController.swift in Sources */,
+				A41C57372304F9DC00E73C73 /* PaymentHistoryTableViewCell.swift in Sources */,
 				A4102C6E22F788B400542A50 /* AddToOrderViewController.swift in Sources */,
 				A4615C9D22FFD80E0054A4D5 /* CheckBox.swift in Sources */,
 			);
@@ -499,10 +524,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dduan008.ChefZs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dduan008.ChefZsCustomer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -518,10 +543,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dduan008.ChefZs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dduan008.ChefZsCustomer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
