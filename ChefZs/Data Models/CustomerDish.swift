@@ -14,17 +14,15 @@ class CustomerDish {
     var size: String
     var school: String
     var paymentMethod: String
-    var customerEmail: String
     var childName: String
     var id: String
     
-    init(name: String, day: String, size: String, school: String, paymentMethod: String, customerEmail: String, childName: String, id: String) {
+    init(name: String, day: String, size: String, school: String, paymentMethod: String, childName: String, id: String) {
         self.name = name
         self.day = day
         self.size = size
         self.school = school
         self.paymentMethod = paymentMethod
-        self.customerEmail = customerEmail
         self.childName = childName
         self.id = id
     }

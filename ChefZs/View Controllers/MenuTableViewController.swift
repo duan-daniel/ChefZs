@@ -37,15 +37,14 @@ class MenuTableViewController: UITableViewController {
         return Firestore.firestore().collection("foods")
     }
 
-    override func viewDidLoad() {
+    override func viewDidLoad() {     
         super.viewDidLoad()
         
         // app launched for fist time --> take to pop up screen
         if !isAppAlreadyLaunchedOnce {
             self.performSegue(withIdentifier: "showWelcomeScreen", sender: nil)
         }
-                
-//        tableView.rowHeight = 90
+        
         tableView.rowHeight = 100
         tableView.separatorStyle = .none
         
@@ -53,7 +52,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("VIEW WILL APPEAR")
+        
         self.listener =  query?.addSnapshotListener { (documents, error) in
             guard let snapshot = documents else {
                 print("Error fetching documents results: \(error!)")
@@ -177,7 +176,6 @@ class MenuTableViewController: UITableViewController {
 
         }
         
-        
         if dishArray.count != 0 {
             switch indexPath.section {
             case 0:
@@ -205,6 +203,17 @@ class MenuTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
+    
+//    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+//        self.performSegue(withIdentifier: "goToSettings", sender: self)
+//    }
+//
+//
+//    @IBAction func completeOrderButtonPressed(_ sender: UIBarButtonItem) {
+//        self.performSegue(withIdentifier: "previewOrder", sender: self)
+//    }
+    
+    
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

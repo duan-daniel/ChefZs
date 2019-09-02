@@ -32,8 +32,14 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if sizeTextField.isFirstResponder {
-            sizeTextField.text = sizePickerData[row]
-            size = sizePickerData[row]
+            if sizePickerData[row] == "Select Size" {
+                sizeTextField.text = ""
+                size = ""
+            }
+            else {
+                sizeTextField.text = sizePickerData[row]
+                size = sizePickerData[row]
+            }
         }
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -41,7 +47,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     // MARK: - Picker View Data
-    let sizePickerData = ["Medium", "Large"]
+    let sizePickerData = ["Select Size", "Small", "Medium", "Large"]
     weak var pickerView: UIPickerView?
     
     
@@ -60,7 +66,6 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var size = ""
     var school = ""
     var paymentMethod = ""
-    var customerEmail = ""
     var childName = ""
     var id = ""
     
@@ -77,34 +82,38 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         //allow tap on screen to remove text field input from screen
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        setUpViews()
+        
+    }
+    
+    func setUpViews() {
         // UIPICKER
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
-        
+    
         sizeTextField.delegate = self
-        
         sizeTextField.inputView = pickerView
-        
+    
         self.pickerView = pickerView
-        
+    
         addToOrderBtn.layer.cornerRadius = 20
-        
+    
         //TODO: Add day of week to navigationItem.title
         switch sectionIndex {
         case 0:
-            self.navigationItem.title = "Monday"
+        self.navigationItem.title = "Monday"
         case 1:
-            self.navigationItem.title = "Tuesday"
+        self.navigationItem.title = "Tuesday"
         case 2:
-            self.navigationItem.title = "Wenesday"
+        self.navigationItem.title = "Wenesday"
         case 3:
-            self.navigationItem.title = "Thursday"
+        self.navigationItem.title = "Thursday"
         default:
-            self.navigationItem.title = "Friday"
+        self.navigationItem.title = "Friday"
         }
         dishNameLabel.text = dish.name
-        
+    
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
@@ -112,33 +121,36 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         toolbar.setItems([flexibleSpace, doneButton], animated: false)
         sizeTextField.inputAccessoryView = toolbar
         ChildNameTextField.inputAccessoryView = toolbar
-        
+    
         loadData()
-        
-//        configureTextFields()
-//        updateTextFields()
-        
+    
+        //        configureTextFields()
+        //        updateTextFields()
     }
     
     func loadData() {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            self.customerEmail = user.email!
-        }
-        db.collection("buyers").document(customerEmail).addSnapshotListener { (documentSnapshot, error) in
-            guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-            }
-            guard let data = document.data() else {
-                print("data empty")
-                return
-            }
-            self.paymentMethod = data["paymentMethod"] as! String
-            self.school = data["school"] as! String
-            self.childName = data["childName"] as! String
-            self.ChildNameTextField.text = self.childName
-        }
+//        let user = Auth.auth().currentUser
+//        if let user = user {
+//            self.customerEmail = user.email!
+//        }
+//        db.collection("buyers").document(customerEmail).addSnapshotListener { (documentSnapshot, error) in
+//            guard let document = documentSnapshot else {
+//                print("Error fetching document: \(error!)")
+//                return
+//            }
+//            guard let data = document.data() else {
+//                print("data empty")
+//                return
+//            }
+//            self.paymentMethod = data["paymentMethod"] as! String
+//            self.school = data["school"] as! String
+//            self.childName = data["childName"] as! String
+//            self.ChildNameTextField.text = self.childName
+//        }
+        self.paymentMethod = UserDefaults.standard.string(forKey: "customerPaymentMethod") ?? ""
+        self.school = UserDefaults.standard.string(forKey: "customerSchool") ?? ""
+        self.childName = UserDefaults.standard.string(forKey: "customerChild") ?? ""
+        self.ChildNameTextField.text = self.childName
     }
     
     
@@ -195,13 +207,24 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if (paymentMethod != "") {
             // MARK: - create CustomerDish object
-            let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, customerEmail: self.customerEmail, childName: self.childName, id: self.id)
+            let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, childName: self.childName, id: self.id)
             SharedVariables.customerDishArray.append(dish)
             
             let garbage = CheckBox(section: sectionIndex, row: rowIndex, status: true)
             SharedVariables.checkBoxArray.append(garbage)
             
             navigationController?.popViewController(animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "Go To Settings!",
+                                          message: "Make sure all fields in Settings are filled in completely before placing an order!",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) -> Void in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

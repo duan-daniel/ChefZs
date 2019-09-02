@@ -143,7 +143,7 @@ class PreviewOrderTableViewController: UITableViewController {
             
             let id = CustomerDish.id
             let size = CustomerDish.size
-            let email = CustomerDish.customerEmail
+//            let email = CustomerDish.customerEmail
             let specificSchool = CustomerDish.school + CustomerDish.size
             let childName = CustomerDish.childName
             let paymentMethod = CustomerDish.paymentMethod
@@ -174,10 +174,24 @@ class PreviewOrderTableViewController: UITableViewController {
                     }
                 }
             }
-            else {
+            else if size == "Large" {
                 print("LARGE COUNT GOOD YUH")
                 ref.updateData([
                     "largeCount": FieldValue.arrayUnion([profile]),
+                    "totalCount": FieldValue.arrayUnion([profile]),
+                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+            }
+            else {
+                print("SMALL COUNT GOOD YUH")
+                ref.updateData([
+                    "smallCount": FieldValue.arrayUnion([profile]),
                     "totalCount": FieldValue.arrayUnion([profile]),
                     "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
                 ]) { err in
