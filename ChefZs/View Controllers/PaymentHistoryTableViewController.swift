@@ -24,7 +24,7 @@ class PaymentHistoryTableViewController: UITableViewController {
         super.viewDidLoad()
         loadDishes()
         tableView.reloadData()
-        tableView.rowHeight = 150
+        tableView.rowHeight = 160
         
         if dishesArray?.count == 0 {
             clearBarButton.isEnabled = false
@@ -64,6 +64,7 @@ class PaymentHistoryTableViewController: UITableViewController {
         cell.childNameTextField.text = dish?.childName
         cell.dateLabel.text = dish?.date
         cell.dishLabel.text = dish?.dishName
+        cell.addOnLabel.text = dish?.addOn
         cell.paymentLabel.text = dish?.paymentMethod
         cell.sizeLabel.text = dish?.size
 

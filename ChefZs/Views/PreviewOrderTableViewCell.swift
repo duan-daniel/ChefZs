@@ -12,6 +12,7 @@ class PreviewOrderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dishLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var addOnLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
     @IBOutlet weak var schoolLabel: UILabel!

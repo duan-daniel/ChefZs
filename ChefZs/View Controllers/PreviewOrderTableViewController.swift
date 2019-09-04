@@ -34,7 +34,7 @@ class PreviewOrderTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 220
+        tableView.rowHeight = 230
         tableView.separatorStyle = .none
         
         db = Firestore.firestore()
@@ -126,6 +126,7 @@ class PreviewOrderTableViewController: UITableViewController {
         cell.paymentLabel.text = "Payment: \(customerDish.paymentMethod)"
         cell.schoolLabel.text = "School: \(customerDish.school)"
         cell.sizeLabel.text = "Size: \(customerDish.size)"
+        cell.addOnLabel.text = "Add-on: \(customerDish.addOn)"
         cell.orderForLabel.text = "Order For: \(customerDish.childName)"
 
         return cell
@@ -140,14 +141,14 @@ class PreviewOrderTableViewController: UITableViewController {
         // MARK: - Write to firebase and to paymentHistoryDishArray
         for CustomerDish in SharedVariables.customerDishArray {
             
-            
+            let addOn = CustomerDish.addOn
             let id = CustomerDish.id
             let size = CustomerDish.size
 //            let email = CustomerDish.customerEmail
             let specificSchool = CustomerDish.school + CustomerDish.size
             let childName = CustomerDish.childName
             let paymentMethod = CustomerDish.paymentMethod
-            let profile = "\(childName)|\(paymentMethod)"
+            let profile = "\(childName)|\(paymentMethod)/\(addOn)"
             
             let pDish = PaymentHistoryDish()
             pDish.childName = childName
@@ -155,50 +156,99 @@ class PreviewOrderTableViewController: UITableViewController {
             pDish.dishName = CustomerDish.name
             pDish.paymentMethod = paymentMethod
             pDish.size = size
+            pDish.addOn = addOn
             
             savePDish(dish: pDish)
             
             // Firebase Database
             let ref = db.collection("foods").document(id)
             if size == "Medium" {
-                print("MEDIUM COUNT GOOD YUH")
-                ref.updateData([
-                    "mediumCount": FieldValue.arrayUnion([profile]),
-                    "totalCount": FieldValue.arrayUnion([profile]),
-                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
-                ]) { err in
-                    if let err = err {
-                        print("Error updating document: \(err)")
-                    } else {
-                        print("Document successfully updated")
+                if addOn == "Fruit" {
+                    ref.updateData([
+                        "mediumCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "fruitCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+                }
+                else {
+                    ref.updateData([
+                        "mediumCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "waterCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
                     }
                 }
             }
             else if size == "Large" {
-                print("LARGE COUNT GOOD YUH")
-                ref.updateData([
-                    "largeCount": FieldValue.arrayUnion([profile]),
-                    "totalCount": FieldValue.arrayUnion([profile]),
-                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
-                ]) { err in
-                    if let err = err {
-                        print("Error updating document: \(err)")
-                    } else {
-                        print("Document successfully updated")
+                if addOn == "Fruit" {
+                    ref.updateData([
+                        "largeCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "fruitCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+                }
+                else {
+                    ref.updateData([
+                        "largeCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "waterCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
                     }
                 }
             }
             else {
-                print("SMALL COUNT GOOD YUH")
-                ref.updateData([
-                    "smallCount": FieldValue.arrayUnion([profile]),
-                    "totalCount": FieldValue.arrayUnion([profile]),
-                    "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
-                ]) { err in
-                    if let err = err {
-                        print("Error updating document: \(err)")
-                    } else {
-                        print("Document successfully updated")
+                if addOn == "Fruit" {
+                    ref.updateData([
+                        "smallCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "fruitCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+                }
+                else {
+                    ref.updateData([
+                        "smallCount": FieldValue.arrayUnion([profile]),
+                        "totalCount": FieldValue.arrayUnion([profile]),
+                        "waterCount": FieldValue.arrayUnion([profile]),
+                        "schools.\(specificSchool)": FieldValue.arrayUnion([profile])
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
                     }
                 }
             }

@@ -13,6 +13,7 @@ class PaymentHistoryDish: Object {
     @objc dynamic var childName: String = ""
     @objc dynamic var date: String = ""
     @objc dynamic var size: String = ""
+    @objc dynamic var addOn: String = ""
     @objc dynamic var dishName: String = ""
     @objc dynamic var paymentMethod: String = ""
 }

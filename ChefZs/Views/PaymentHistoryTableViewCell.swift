@@ -19,5 +19,7 @@ class PaymentHistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var paymentLabel: UILabel!
     
+    @IBOutlet weak var addOnLabel: UILabel!
+    
     @IBOutlet weak var childNameTextField: UILabel!
 }

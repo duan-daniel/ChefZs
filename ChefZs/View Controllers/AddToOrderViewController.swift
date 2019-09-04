@@ -22,11 +22,17 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if sizeTextField.isFirstResponder {
             return sizePickerData.count
         }
+        else if addOnTextField.isFirstResponder {
+            return addOnPickerData.count
+        }
         return 0
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if sizeTextField.isFirstResponder {
             return sizePickerData[row]
+        }
+        else if addOnTextField.isFirstResponder {
+            return addOnPickerData[row]
         }
         return nil
     }
@@ -41,6 +47,16 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 size = sizePickerData[row]
             }
         }
+        else if addOnTextField.isFirstResponder {
+            if addOnPickerData[row] == "Select Add-on" {
+                addOnTextField.text = ""
+                addOn = ""
+            }
+            else {
+                addOnTextField.text = addOnPickerData[row]
+                addOn = addOnPickerData[row]
+            }
+        }
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.pickerView?.reloadAllComponents()
@@ -48,6 +64,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     // MARK: - Picker View Data
     let sizePickerData = ["Select Size", "Small", "Medium", "Large"]
+    let addOnPickerData = ["Select Add-on", "Fruit", "Water"]
     weak var pickerView: UIPickerView?
     
     
@@ -55,6 +72,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var sizeTextField: HoshiTextField!
+    @IBOutlet weak var addOnTextField: HoshiTextField!
     @IBOutlet weak var ChildNameTextField: HoshiTextField!
     @IBOutlet weak var addToOrderBtn: UIButton!
     
@@ -64,6 +82,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var name = ""
     var day = ""
     var size = ""
+    var addOn = ""
     var school = ""
     var paymentMethod = ""
     var childName = ""
@@ -94,6 +113,8 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
         sizeTextField.delegate = self
         sizeTextField.inputView = pickerView
+        addOnTextField.delegate = self
+        addOnTextField.inputView = pickerView
     
         self.pickerView = pickerView
     
@@ -120,6 +141,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
         toolbar.setItems([flexibleSpace, doneButton], animated: false)
         sizeTextField.inputAccessoryView = toolbar
+        addOnTextField.inputAccessoryView = toolbar
         ChildNameTextField.inputAccessoryView = toolbar
     
         loadData()
@@ -207,7 +229,7 @@ class AddToOrderViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if (paymentMethod != "") {
             // MARK: - create CustomerDish object
-            let dish = CustomerDish(name: self.name, day: self.day, size: self.size, school: self.school, paymentMethod: self.paymentMethod, childName: self.childName, id: self.id)
+            let dish = CustomerDish(name: self.name, day: self.day, size: self.size, addOn: self.addOn, school: self.school, paymentMethod: self.paymentMethod, childName: self.childName, id: self.id)
             SharedVariables.customerDishArray.append(dish)
             
             let garbage = CheckBox(section: sectionIndex, row: rowIndex, status: true)

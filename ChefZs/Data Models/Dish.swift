@@ -21,6 +21,8 @@ struct Dish {
     var smallCount: [String]
     var mediumCount: [String]
     var largeCount: [String]
+    var fruitCount: [String]
+    var waterCount: [String]
     var schools: [String: [String]]
     
     var dictionary:[String:Any] {
@@ -32,6 +34,8 @@ struct Dish {
             "smallCount":smallCount,
             "mediumCount":mediumCount,
             "largeCount":largeCount,
+            "fruitCount":fruitCount,
+            "waterCount":waterCount,
             "schools":schools
         ]
     }
@@ -46,9 +50,11 @@ extension Dish : DSerializable {
             let smallCount = dictionary["smallCount"] as? [String],
             let mediumCount = dictionary["mediumCount"] as? [String],
             let largeCount = dictionary["largeCount"] as? [String],
+            let fruitCount = dictionary["fruitCount"] as? [String],
+            let waterCount = dictionary["waterCount"] as? [String],
             let schools = dictionary["schools"] as? [String: [String]] else {return nil}
         
-        self.init(name: name, date: date, id: id, totalCount: totalCount, smallCount: smallCount, mediumCount: mediumCount, largeCount: largeCount, schools: schools)
+        self.init(name: name, date: date, id: id, totalCount: totalCount, smallCount: smallCount, mediumCount: mediumCount, largeCount: largeCount, fruitCount: fruitCount, waterCount: waterCount, schools: schools)
     }
 }
 
